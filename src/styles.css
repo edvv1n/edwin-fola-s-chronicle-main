@@ -1,0 +1,149 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-purple: var(--purple);
+  --font-display: "Fraunces", serif;
+  --font-sans: "DM Sans", sans-serif;
+  --font-script: "Dancing Script", cursive;
+  --font-mono: "DM Mono", monospace;
+}
+
+.font-script { font-family: var(--font-script); }
+.font-display { font-family: var(--font-display); }
+
+:root {
+  --radius: 0.75rem;
+  /* Light mode: cream + soft blue hints, gold & purple accents */
+  --background: oklch(0.98 0.015 85);
+  --foreground: oklch(0.22 0.04 280);
+  --card: oklch(0.995 0.01 85);
+  --card-foreground: oklch(0.22 0.04 280);
+  --popover: oklch(0.995 0.01 85);
+  --popover-foreground: oklch(0.22 0.04 280);
+  --primary: oklch(0.45 0.18 295); /* purple */
+  --primary-foreground: oklch(0.98 0.01 85);
+  --secondary: oklch(0.94 0.02 85);
+  --secondary-foreground: oklch(0.25 0.05 280);
+  --muted: oklch(0.95 0.015 85);
+  --muted-foreground: oklch(0.5 0.03 280);
+  --accent: oklch(0.78 0.14 85); /* gold */
+  --accent-foreground: oklch(0.2 0.04 280);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(0.88 0.02 85);
+  --input: oklch(0.92 0.02 85);
+  --ring: oklch(0.55 0.18 295);
+  --gold: oklch(0.78 0.14 85);
+  --purple: oklch(0.45 0.18 295);
+
+  --gradient-royal: linear-gradient(135deg, oklch(0.45 0.18 295), oklch(0.78 0.14 85));
+  --shadow-elegant: 0 20px 50px -20px oklch(0.45 0.18 295 / 0.35);
+  --shadow-gold: 0 10px 40px -10px oklch(0.78 0.14 85 / 0.5);
+}
+
+.dark {
+  /* Dark: deep navy + charcoal, with gold + purple */
+  --background: oklch(0.16 0.03 265);
+  --foreground: oklch(0.96 0.015 85);
+  --card: oklch(0.21 0.035 265);
+  --card-foreground: oklch(0.96 0.015 85);
+  --popover: oklch(0.21 0.035 265);
+  --popover-foreground: oklch(0.96 0.015 85);
+  --primary: oklch(0.7 0.18 295); /* lighter purple in dark */
+  --primary-foreground: oklch(0.16 0.03 265);
+  --secondary: oklch(0.26 0.04 265);
+  --secondary-foreground: oklch(0.96 0.015 85);
+  --muted: oklch(0.24 0.035 265);
+  --muted-foreground: oklch(0.7 0.03 280);
+  --accent: oklch(0.82 0.16 85); /* bright gold */
+  --accent-foreground: oklch(0.16 0.03 265);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(0.3 0.04 265);
+  --input: oklch(0.28 0.04 265);
+  --ring: oklch(0.7 0.18 295);
+  --gold: oklch(0.82 0.16 85);
+  --purple: oklch(0.7 0.18 295);
+
+  --gradient-royal: linear-gradient(135deg, oklch(0.7 0.18 295), oklch(0.82 0.16 85));
+  --shadow-elegant: 0 20px 50px -20px oklch(0.7 0.18 295 / 0.5);
+  --shadow-gold: 0 10px 40px -10px oklch(0.82 0.16 85 / 0.4);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; font-weight: 400; }
+}
+
+/* Heart-shaped navbar mask */
+.heart-mask {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60' preserveAspectRatio='none'><path d='M0 20 Q0 0 20 0 Q40 0 50 15 Q60 0 80 0 Q100 0 100 20 L100 30 Q100 50 80 55 L20 55 Q0 50 0 30 Z M100 20 Q100 0 120 0 Q140 0 150 15 Q160 0 180 0 Q200 0 200 20 L200 30 Q200 50 180 55 L120 55 Q100 50 100 30 Z' fill='black'/></svg>");
+          mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60' preserveAspectRatio='none'><path d='M0 20 Q0 0 20 0 Q40 0 50 15 Q60 0 80 0 Q100 0 100 20 L100 30 Q100 50 80 55 L20 55 Q0 50 0 30 Z' fill='black'/></svg>");
+}
+
+/* Waveform bars */
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+.wave-bar { animation: wave 1s ease-in-out infinite; transform-origin: center; }
+
+/* Stamp */
+.stamp {
+  font-family: var(--font-mono);
+  border: 4px double currentColor;
+  color: oklch(0.55 0.22 25);
+  transform: rotate(-14deg);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 1.25rem;
+  font-weight: 700;
+  opacity: 0.85;
+  box-shadow: inset 0 0 0 2px oklch(0.55 0.22 25 / 0.2);
+}
+
+.glass {
+  background: color-mix(in oklab, var(--card) 70%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.gradient-text {
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
