@@ -12,7 +12,7 @@
     "format": "prettier --write ."
   },
   "overrides": {
-    "esbuild": "0.17.19"
+  "esbuild": "npm:esbuild-wasm@0.21.5"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
